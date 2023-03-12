@@ -86,3 +86,57 @@ let kin: Student = Student()
 // 컴파일 오류 발생
 // kin.name = "kin"
 kin.selfIntroduce()
+
+
+// ---------
+
+//struct Fahrenheit {
+//    var temperature: Double
+//    init() {
+//        temperature = 32.0
+//    }
+//}
+// or
+// 초기값이 항상 같다면
+
+struct Fahrenheit {
+    var temperature = 32.0
+}
+var f = Fahrenheit()
+dump(f)
+// init()을 여러개 만들 수도 있다.
+struct Celsius {
+    var temperatureInCelsius: Double
+    init(fromFahrenheit fahrenheit: Double) {
+        temperatureInCelsius = (fahrenheit - 32.0) / 1.8
+    }
+    init(fromKelvin kelvin: Double) {
+        temperatureInCelsius = kelvin - 273.15
+    }
+}
+dump(f)
+
+// 프로퍼티가 옵셔널이면, 초기화도 옵션이다.
+class SurveyQuestion {
+    var text: String
+    var response: String?
+    init(text: String) {
+        self.text = text
+    }
+    func ask() {
+        print(text)
+    }
+}
+
+ /*:
+  ---
+  ## Structure
+  ### Value Type
+  */
+struct Resolution {
+    var width = 0
+    var height = 0
+}
+
+let hd = Resolution(width: 1920, height: 1080)
+var cinema = hd
